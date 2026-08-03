@@ -110,5 +110,46 @@ def approach_2(nums):
     return result
 
 
+# ===================================================
+# Approach 3: Optimized Prefix + Running Suffix Product
+# ===================================================
+#
+# Idea:
+# 1. Store prefix products directly in the result array.
+# 2. Traverse from right to left.
+# 3. Maintain a running suffix product.
+# 4. Multiply the current result value with the suffix product.
+# 5. Return the result.
+#
+# Time Complexity : O(n)
+#
+# Space Complexity: O(1) (excluding output array)
+#
+# ===================================================
 
+
+def approach_3(nums):
+
+    n = len(nums)
+
+    result = [1] * n
+
+
+    # Store prefix products
+    product = 1
+
+    for i in range(n):
+        result[i] = product
+        product *= nums[i]
+
+
+    # Multiply by suffix products
+    product = 1
+
+    for i in range(n - 1, -1, -1):
+        result[i] *= product
+        product *= nums[i]
+
+
+    return result
 
