@@ -153,3 +153,52 @@ def approach_3(nums):
 
     return result
 
+
+
+nums = [1,2,3,4]
+
+print(approach_1(nums))
+print(approach_2(nums))
+print(approach_3(nums))
+
+# ===================================================
+# Test Cases
+# ===================================================
+
+# Test Case 1
+#
+# Input:
+# nums = [1,2,3,4]
+#
+# Output:
+# [24,12,8,6]
+
+
+# Test Case 2
+#
+# Input:
+# nums = [-1,1,0,-3,3]
+#
+# Output:
+# [0,0,9,0,0]
+
+
+# Test Case 3
+#
+# Input:
+# nums = [5]
+#
+# Output:
+# [1]
+
+
+# ===================================================
+# Interview Notes
+# ===================================================
+#
+# ✔ Brute force solution is O(n²).
+# ✔ Interviewers usually ask for an O(n) solution.
+# ✔ Division is not allowed because of zero values.
+# ✔ Prefix and suffix products eliminate repeated calculations.
+# ✔ Optimized solution uses the output array to achieve O(1) extra space.
+
