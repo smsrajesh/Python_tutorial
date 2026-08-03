@@ -1,10 +1,93 @@
-# Problem: Product of Array Except Self 
-# Input nums = [1, 2, 3, 4] 
-# Expected Output = [24, 12, 8, 6]
+# ===================================================
+# Problem: Product of Array Except Self
+# Category: Arrays / Prefix & Suffix Products
+# Difficulty: Medium
+# ===================================================
 
-nums = [1, 2, 3, 4]
+# Problem Statement:
+#
+# Given an integer array nums, return an array answer such that:
+#
+# answer[i] = product of all elements in nums except nums[i].
+#
+# Solve the problem without using division.
+#
 
-def Product_of_Array_Except_Self(nums):
+# Example:
+#
+# Input :
+# nums = [1, 2, 3, 4]
+#
+# Output:
+# [24, 12, 8, 6]
+#
+# Explanation:
+#
+# Index 0 -> 2 * 3 * 4 = 24
+# Index 1 -> 1 * 3 * 4 = 12
+# Index 2 -> 1 * 2 * 4 = 8
+# Index 3 -> 1 * 2 * 3 = 6
+
+
+# ===================================================
+# Approach 1: Brute Force
+# ===================================================
+#
+# Idea:
+# 1. Traverse every element in the array.
+# 2. For each index, calculate the product of all other elements.
+# 3. Skip the current index while multiplying.
+# 4. Store the product in the result array.
+# 5. Return the result.
+#
+# Time Complexity : O(n²)
+#
+# Space Complexity: O(1) (excluding output array)
+#
+# ===================================================
+
+
+def approach_1(nums):
+
+    result = []
+
+    for i in range(len(nums)):
+
+        product = 1
+
+        for j in range(len(nums)):
+
+            if i != j:
+                product *= nums[j]
+
+        result.append(product)
+
+    return result
+
+
+
+# ===================================================
+# Approach 2: Prefix & Suffix Products
+# ===================================================
+#
+# Idea:
+# 1. Create a prefix product array.
+# 2. Create a suffix product array.
+# 3. Prefix stores the product of all elements to the left.
+# 4. Suffix stores the product of all elements to the right.
+# 5. Multiply prefix and suffix values to get the answer.
+#
+# Time Complexity : O(n)
+#
+# Space Complexity: O(n)
+#
+# ===================================================
+
+
+
+
+
+def approach_2(nums):
 
     left=[1]*len(nums)
     product = 1
@@ -26,4 +109,6 @@ def Product_of_Array_Except_Self(nums):
 
     return result
 
-print(Product_of_Array_Except_Self(nums))
+
+
+
