@@ -111,3 +111,87 @@ def approach_2(nums, k):
 
             if len(result) == k:
                 return result
+
+
+
+
+# ===================================================
+# Test Cases
+# ===================================================
+
+# Test Case 1
+
+nums = [1, 1, 1, 2, 2, 3]
+k = 2
+
+print(approach_1(nums, k))
+print(approach_2(nums, k))
+
+
+# Test Case 2
+
+nums = [1]
+k = 1
+
+print(approach_1(nums, k))
+print(approach_2(nums, k))
+
+
+# Test Case 3
+
+nums = [4, 4, 4, 5, 5, 6]
+k = 1
+
+print(approach_1(nums, k))
+print(approach_2(nums, k))
+
+
+# ===================================================
+# Interview Notes
+# ===================================================
+#
+# ✔ Use a dictionary to count the frequency of each
+#   element.
+#
+# ✔ Sorting is simple to implement and commonly
+#   accepted in interviews.
+#
+# ✔ Bucket Sort removes the sorting step and achieves
+#   O(n) time complexity.
+#
+# ✔ The bucket index represents the frequency of an
+#   element.
+#
+# ✔ Maximum possible frequency is len(nums), so
+#   len(nums) + 1 buckets are required.
+#
+# ✔ Multiple elements can have the same frequency,
+#   therefore each bucket is a list.
+#
+# ✔ Traverse buckets from highest frequency to lowest
+#   to retrieve the most frequent elements first.
+#
+# ✔ Return immediately after collecting k elements to
+#   avoid unnecessary traversal.
+#
+# ✔ bucket[0] is always empty because no element can
+#   appear zero times.
+#
+
+# ===================================================
+# Approach Comparison
+# ===================================================
+#
+# Approach              Time              Space
+# ---------------------------------------------------------
+# Sorting              O(n + m log m)     O(m)
+# Bucket Sort          O(n)               O(n)
+#
+# Best Choice
+#
+# ✔ General interviews
+#     → Sorting
+#
+# ✔ When O(n) optimization is requested
+#     → Bucket Sort
+
