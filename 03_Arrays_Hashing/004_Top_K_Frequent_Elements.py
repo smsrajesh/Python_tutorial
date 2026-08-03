@@ -64,3 +64,50 @@ def approach_1(nums, k):
         result.append(key)
 
     return result
+
+
+
+# ===================================================
+# Approach 2: Bucket Sort
+# ===================================================
+#
+# Idea:
+# 1. Count the frequency of each element.
+# 2. Create buckets where the bucket index represents
+#    the frequency.
+# 3. Place each number into its corresponding bucket.
+# 4. Traverse buckets from highest frequency to lowest.
+# 5. Return the first k elements collected.
+#
+# Time Complexity: O(n)
+#
+# Space Complexity: O(n)
+#
+# ===================================================
+
+def approach_2(nums, k):
+
+    # Step 1
+    freq = {}
+
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+
+    # Step 2
+    buckets = [[] for _ in range(len(nums) + 1)]
+
+    # Step 3
+    for num, count in freq.items():
+        buckets[count].append(num)
+
+    # Step 4
+    result = []
+
+    for i in range(len(buckets) - 1, 0, -1):
+
+        for num in buckets[i]:
+
+            result.append(num)
+
+            if len(result) == k:
+                return result
